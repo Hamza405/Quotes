@@ -25,7 +25,10 @@ const QuoteList = ( props ) => {
 
   const changeSortingHandler = () => {
     const sufix = qureyParams.get( 'sort' ) === 'asc' ? 'des' : 'asc';
-    history.push( '/quotes?sort=' + sufix );
+    history.push( {
+      pathname: location.pathname,
+      search: `?sort=${ sufix }`
+    } );
   };
 
   const sortedList = sortQuotes( props.quotes, qureyParams.get( 'sort' ) === 'asc' );
