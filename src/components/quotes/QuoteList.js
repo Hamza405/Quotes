@@ -1,5 +1,6 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import QuotesContext from '../../store/QuotesContext';
 
 import QuoteItem from './QuoteItem';
 import classes from './QuoteList.module.css';
@@ -21,6 +22,7 @@ const QuoteList = ( props ) => {
   const history = useHistory();
   const location = useLocation();
   const qureyParams = new URLSearchParams( location.search );
+  const quotesState = useContext( QuotesContext );
 
 
   const changeSortingHandler = () => {
@@ -31,7 +33,7 @@ const QuoteList = ( props ) => {
     } );
   };
 
-  const sortedList = sortQuotes( props.quotes, qureyParams.get( 'sort' ) === 'asc' );
+  const sortedList = sortQuotes( quotesState.quotes, qureyParams.get( 'sort' ) === 'asc' );
   return (
     <Fragment>
       <div className={ classes.sorting }>
