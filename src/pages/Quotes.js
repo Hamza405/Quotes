@@ -33,14 +33,13 @@ const Quotes = () => {
         return <p className='centered focused'>{ error } </p>;
     }
 
-    if ( status === "completed" )
+    if ( status === "completed" && ( loadedQuote.length === 0 || !loadedQuote ) )
     {
 
-        return <QuoteList />;
+        return <NoQuotesFound />;
     }
 
-    return <NoQuotesFound />;
-
+    return <QuoteList />;
 
 };
 
