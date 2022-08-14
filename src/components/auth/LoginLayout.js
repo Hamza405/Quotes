@@ -34,7 +34,7 @@ const LoginLayout = ( props ) => {
             </span>
             <span style={ { fontSize: "16px", paddingBottom: "1rem" } }>
                 You can{ " " }
-                <Link to="/signup" style={ { textDecoration: "none" } }>
+                <Link to="/signup" style={ { color: "rgba(0, 128, 128)", textDecoration: "none" } }>
                     Register here !
                 </Link>
             </span>
@@ -65,7 +65,7 @@ const LoginLayout = ( props ) => {
                         </span>
                     </div>
                     <Link to="/password" style={ { textDecoration: "none" } }>
-                        <span style={ { fontSize: "0.7rem" } }>Forget Password ?</span>
+                        <span style={ { color: "rgba(0, 128, 128)", fontSize: "0.7rem" } }>Forget Password ?</span>
                     </Link>
                 </div>
                 <SizedBox />
@@ -74,7 +74,7 @@ const LoginLayout = ( props ) => {
                     style={ {
                         width: "100%",
                         color: "white",
-                        backgroundColor: "#0C21C1",
+                        backgroundColor: "rgba(0, 128, 128)",
                         borderRadius: "2.5rem",
                     } }
                     onClick={ submit }

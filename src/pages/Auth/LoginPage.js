@@ -1,5 +1,5 @@
 
-import style from "./LoginPage.module.css";
+import style from "./AuthPageStyle.module.css";
 import BackgroundScreen from "../../components/UI/BackgroundScreen";
 import LoginLayout from "../../components/auth/LoginLayout";
 

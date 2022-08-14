@@ -1,5 +1,5 @@
 const SizedBox = ( props ) => {
-    const size = props.size != null ? props.size : 0.8;
+    const size = props.size != null ? props.size : 1;
     return <div style={ { margin: `${ size }rem` } }></div>;
 };
 
