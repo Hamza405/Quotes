@@ -2,13 +2,13 @@ import style from "./LoginLayout.module.css";
 import { Link } from "react-router-dom";
 import TextFormField from "../UI/TextFormField";
 import { CheckBox, EmailOutlined, LockOutlined } from "@material-ui/icons";
-import Facebook from "../../../assets/Facebook.png";
-import google from "../../../assets/google.png";
-import apple from "../../../assets/apple.png";
+import Facebook from "../../assets/Facebook.png";
+import google from "../../assets/google.png";
+import apple from "../../assets/apple.png";
 import { Button, Checkbox } from "@material-ui/core";
 import SizedBox from "../UI/SizedBox";
 import { useRef, useContext } from "react";
-import AuthContext from "../../store/authContext";
+import AuthContext from "../../store/AuthContext";
 
 const LoginLayout = ( props ) => {
     const _authContext = useContext( AuthContext );

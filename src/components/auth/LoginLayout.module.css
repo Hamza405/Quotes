@@ -1,27 +1,31 @@
 .container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  padding-top: 2rem;
+  justify-content: center;
+}
+
+.password {
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-top: 0.5rem;
 }
 
-.background {
-  width: 50%;
-  height: 100vh;
-  background-color: white;
+.wraper {
+  margin: 1rem 3rem;
+  display: flex;
+  flex-direction: row;
+  /* width: 50%; */
+  justify-content: space-evenly;
 }
 
-.child {
-  width: 50%;
-  background-color: white;
-  height: 100vh;
-}
-
-@media only screen and (max-width: 1024px) {
-  .background {
-    display: none;
-    width: 0;
-    height: 0;
-  }
-  .child {
-    width: 100%;
-  }
+.icon {
+  width: 41.46px;
+  height: 41.46px;
 }
