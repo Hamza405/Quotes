@@ -1,12 +1,12 @@
 import { useContext, useEffect } from "react";
-import QuoteList from "../components/quotes/QuoteList";
-import LoadingSpinner from "../components/UI/LoadingSpinner";
-import useHttp from "../hooks/use-http";
-import { getAllQuotes } from "../services/api";
-import NoQuotesFound from "../components/quotes/NoQuotesFound.js";
-import QuotesContext from "../store/QuotesContext";
+import QuoteList from "../../components/quotes/QuoteList";
+import LoadingSpinner from "../../components/UI/LoadingSpinner";
+import useHttp from "../../hooks/use-http";
+import { getAllQuotes } from "../../services/api";
+import NoQuotesFound from "../../components/quotes/NoQuotesFound.js";
+import QuotesContext from "../../store/QuotesContext";
 
-const Quotes = () => {
+const QuotesPage = () => {
     const { sendRequest, status, data: loadedQuote, error } = useHttp( getAllQuotes, true );
     const quotesContext = useContext( QuotesContext );
 
@@ -43,4 +43,4 @@ const Quotes = () => {
 
 };
 
-export default Quotes;
+export default QuotesPage;

@@ -1,13 +1,14 @@
-import QuoteForm from '../components/quotes/QuoteForm';
+import QuoteForm from '../../components/quotes/QuoteForm';
 import { useHistory } from "react-router-dom";
-import useHttp from '../hooks/use-http';
-import { addQuote } from "../services/api";
+import useHttp from '../../hooks/use-http';
+import { addQuote } from "../../services/api";
 import { useEffect } from 'react';
 
 
 const NewQuote = () => {
     const history = useHistory();
     const { sendRequest, status } = useHttp( addQuote );
+    console.log( 'jad' );
 
     useEffect( () => {
         if ( status === 'completed' )
