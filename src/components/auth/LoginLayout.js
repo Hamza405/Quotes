@@ -5,13 +5,11 @@ import { CheckBox, EmailOutlined, LockOutlined } from "@material-ui/icons";
 import Facebook from "../../assets/Facebook.png";
 import google from "../../assets/google.png";
 import apple from "../../assets/apple.png";
-import { Button, Checkbox } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import SizedBox from "../UI/SizedBox";
-import { useRef, useContext } from "react";
-import AuthContext from "../../store/AuthContext";
+import { useRef } from "react";
 
-const LoginLayout = ( props ) => {
-    const _authContext = useContext( AuthContext );
+const LoginLayout = ( { onLogin } ) => {
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
 
@@ -23,7 +21,7 @@ const LoginLayout = ( props ) => {
             email: email,
             password: password,
         };
-        _authContext.loginMethod( data );
+        onLogin( data );
     };
 
     return (
@@ -87,14 +85,14 @@ const LoginLayout = ( props ) => {
             </span>
             <div className={ style.wraper }>
                 <a href="/">
-                    <img className={ style.icon } src={ Facebook } />
+                    <img className={ style.icon } src={ Facebook } alt="facebook" />
                 </a>
                 <a href="/">
-                    <img className={ style.icon } src={ apple } />
+                    <img className={ style.icon } src={ apple } alt="apple" />
                 </a>
 
                 <a href="/">
-                    <img className={ style.icon } src={ google } />
+                    <img className={ style.icon } src={ google } alt="google" />
                 </a>
             </div>
         </div>

@@ -4,7 +4,7 @@ import QuotesPage from '../../pages/Quotes/QuotesPage';
 import Layout from '../../components/layout/Layout';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import NewQuote from './NewQuotes';
-import QuoteProvider from "../../store/QuotesProvider";
+import { QuoteProvider } from "../../store/QuotesContext";
 
 
 const QuoteDetails = React.lazy( () => import( './QuoteDetails' ) );

@@ -2,18 +2,22 @@ import { createContext, useState } from "react";
 
 const AuthContext = createContext( {
     isAuth: false,
+    token: '',
     loginMethod: ( data ) => { },
     signupMethod: ( data ) => { },
     forgetPasswordMethod: ( email ) => { },
 } );
 
-export function AuthProvider ( props ) {
+export const AuthProvider = ( props ) => {
     const [ isAuthState, setIsAuth ] = useState( false );
-    const login = ( data ) => {
+    const [ token, setToken ] = useState( '' );
+    const login = ( token ) => {
         setIsAuth( true );
+        setToken( token );
     };
-    const signup = ( data ) => {
+    const signup = ( token ) => {
         setIsAuth( true );
+        setToken( token );
     };
     const forgetPassword = ( email ) => {
 
@@ -23,6 +27,7 @@ export function AuthProvider ( props ) {
     };
     const context = {
         isAuth: isAuthState,
+        token: token,
         loginMethod: login,
         signupMethod: signup,
         forgetPasswordMethod: forgetPassword,
@@ -33,6 +38,6 @@ export function AuthProvider ( props ) {
             { props.children }
         </AuthContext.Provider>
     );
-}
+};
 
 export default AuthContext;

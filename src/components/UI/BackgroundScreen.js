@@ -1,5 +1,4 @@
 import style from "./BackgroundScreen.module.css";
-import i from "../../assets/Saly-10.png";
 import { Call } from "@material-ui/icons";
 
 const BackgroundScreen = ( { lable } ) => {
