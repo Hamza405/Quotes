@@ -13,7 +13,7 @@ const NewQuote = () => {
     useEffect( () => {
         if ( status === 'completed' )
         {
-            history.replace( '/quotes' );
+            history.replace( '/home' );
         }
     }, [ status, history ] );
 
