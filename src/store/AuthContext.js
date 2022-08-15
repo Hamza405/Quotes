@@ -15,6 +15,7 @@ export const AuthProvider = ( props ) => {
 
     const login = ( token ) => {
         setToken( token );
+        localStorage.setItem( 'token', token );
     };
     const signup = ( token ) => {
         setToken( token );
@@ -24,6 +25,7 @@ export const AuthProvider = ( props ) => {
     };
     const logout = () => {
         setToken( null );
+        localStorage.removeItem( 'token' );
     };
 
     const context = {
