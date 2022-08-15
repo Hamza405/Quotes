@@ -18,7 +18,6 @@ const LoginPage = () => {
     const loginHandler = ( inputData ) => {
         sendRequest( inputData );
     };
-
     const handleClose = () => { };
 
     useEffect( () => {

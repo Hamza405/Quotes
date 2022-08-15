@@ -10,27 +10,24 @@ const AuthContext = createContext( {
 } );
 
 export const AuthProvider = ( props ) => {
-    const [ isAuthState, setIsAuth ] = useState( false );
     const [ token, setToken ] = useState( '' );
+    const isloggedIn = !!token;
 
     const login = ( token ) => {
-        setIsAuth( true );
         setToken( token );
     };
     const signup = ( token ) => {
-        setIsAuth( true );
         setToken( token );
     };
     const forgetPassword = ( email ) => {
 
     };
     const logout = () => {
-        setIsAuth( false );
-        setToken( '' );
+        setToken( null );
     };
 
     const context = {
-        isAuth: isAuthState,
+        isAuth: isloggedIn,
         token: token,
         loginMethod: login,
         signupMethod: signup,

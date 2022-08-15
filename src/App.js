@@ -19,6 +19,9 @@ function App () {
       <Route path='/signup' >
         <SignupPage />
       </Route>
+      {/* <Route path='/forgetpassword' >
+        <SignupPage />
+      </Route> */}
       <Route path='/home'>
         <Qoutes />
       </Route>
