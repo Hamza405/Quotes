@@ -1,4 +1,3 @@
-
 import BackgroundScreen from "../../components/UI/BackgroundScreen";
 import style from "./AuthPageStyle.module.css";
 import SignupLayout from "../../components/auth/SignupLayout";
@@ -8,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import AuthContext from "../../store/AuthContext";
 import { Snackbar } from "@material-ui/core";
+import LoadingSpinner from "../../components/UI/LoadingSpinner";
 
 const SignupPage = () => {
     const history = useHistory();
@@ -30,9 +30,9 @@ const SignupPage = () => {
 
     return (
         <div className={ style.container }>
-            <div className={ style.child }>
+            { status === 'pending' ? <div className="centered"><LoadingSpinner /></div> : <div className={ style.child }>
                 <SignupLayout onSignup={ signupHandler } />
-            </div>
+            </div> }
             <div className={ style.background }>
                 <BackgroundScreen lable="Sign up to Name" />
             </div>

@@ -8,6 +8,7 @@ import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../store/AuthContext";
 import { Snackbar } from "@material-ui/core";
+import LoadingSpinner from "../../components/UI/LoadingSpinner";
 
 const LoginPage = () => {
     const history = useHistory();
@@ -31,9 +32,10 @@ const LoginPage = () => {
 
     return (
         <div className={ style.container }>
-            <div className={ style.child }>
+            { status === 'pending' ? <div className="centered"><LoadingSpinner /></div> : <div className={ style.child }>
                 <LoginLayout onLogin={ loginHandler } />
-            </div>
+            </div> }
+
             <div className={ style.background }>
                 <BackgroundScreen lable="Sign in to Name" />
             </div>
