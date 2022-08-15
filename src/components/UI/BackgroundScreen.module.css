@@ -1,0 +1,31 @@
+.background{
+  height: 100vh;
+  background-image: url("../../assets//book1.jpg");
+   background-size: 100% 100%;
+}
+
+.container {
+  background-color: rgba(0, 128, 128,0.5);
+  display: flex;
+  flex-direction: column;
+  
+  /* justify-content: space-around; */
+  height: 100%;
+}
+
+.conact {
+  position: absolute;
+  right: 2.5%;
+  top: 4%;
+}
+
+.conactclass {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.content {
+  padding: 10rem 0px 0px 6rem;
+}

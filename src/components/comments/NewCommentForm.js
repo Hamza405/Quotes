@@ -15,6 +15,7 @@ const NewCommentForm = ( props ) => {
     if ( status === 'completed' )
     {
       onAddedComment();
+      commentTextRef.current.value = '';
     }
   }, [ status, error, onAddedComment ] );
 

@@ -1,10 +1,10 @@
 import { Route, useParams, Link, useRouteMatch } from "react-router-dom";
-import Comments from "../components/comments/Comments";
-import HighlightedQuote from '../components/quotes/HighlightedQuote';
-import { getSingleQuote } from "../services/api";
-import useHttp from "../hooks/use-http";
+import Comments from "../../components/comments/Comments";
+import HighlightedQuote from '../../components/quotes/HighlightedQuote';
+import { getSingleQuote } from "../../services/api";
+import useHttp from "../../hooks/use-http";
 import { useEffect } from "react";
-import LoadingSpinner from "../components/UI/LoadingSpinner";
+import LoadingSpinner from "../../components/UI/LoadingSpinner";
 
 const QuoteDetails = () => {
     const match = useRouteMatch();

@@ -3,10 +3,12 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
-import QuoteProvider from "./store/QuotesProvider";
+import { AuthProvider } from "./store/AuthContext";
 
-ReactDOM.render( <QuoteProvider>
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
-</QuoteProvider>, document.getElementById( 'root' ) );
+ReactDOM.render(
+    <AuthProvider>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </AuthProvider>
+    , document.getElementById( 'root' ) );
