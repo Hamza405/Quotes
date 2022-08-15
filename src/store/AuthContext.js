@@ -6,11 +6,13 @@ const AuthContext = createContext( {
     loginMethod: ( data ) => { },
     signupMethod: ( data ) => { },
     forgetPasswordMethod: ( email ) => { },
+    logoutMethod: () => { }
 } );
 
 export const AuthProvider = ( props ) => {
     const [ isAuthState, setIsAuth ] = useState( false );
     const [ token, setToken ] = useState( '' );
+
     const login = ( token ) => {
         setIsAuth( true );
         setToken( token );
@@ -24,7 +26,9 @@ export const AuthProvider = ( props ) => {
     };
     const logout = () => {
         setIsAuth( false );
+        setToken( '' );
     };
+
     const context = {
         isAuth: isAuthState,
         token: token,
@@ -33,6 +37,7 @@ export const AuthProvider = ( props ) => {
         forgetPasswordMethod: forgetPassword,
         logoutMethod: logout
     };
+
     return (
         <AuthContext.Provider value={ context }>
             { props.children }

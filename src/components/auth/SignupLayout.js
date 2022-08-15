@@ -1,30 +1,26 @@
 import style from "./SignupLayout.module.css";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import { Person, EmailOutlined, LockOutlined } from "@material-ui/icons";
+import { EmailOutlined, LockOutlined } from "@material-ui/icons";
 import TextFormField from "../UI/TextFormField";
 import SizedBox from "../UI/SizedBox";
-import { useContext, useRef } from "react";
-import AuthContext from "../../store/AuthContext";
+import { useRef } from "react";
 
 const SignupLayout = ( props ) => {
-    const _authContext = useContext( AuthContext );
     const emailInputRef = useRef();
-    const userNameInputRef = useRef();
     const passwordInputRef = useRef();
 
     const submit = ( event ) => {
         event.preventDefault();
         const email = emailInputRef.current.value;
         const password = passwordInputRef.current.value;
-        const userName = userNameInputRef.current.value;
         const data = {
             email: email,
             password: password,
-            userName: userName,
         };
-        _authContext.signupMethod( data );
+        props.onSignup( data );
     };
+
     return (
         <div className={ style.container }>
             <span style={ { fontSize: "30px", paddingBottom: "10px" } }>Sign up</span>
@@ -45,13 +41,13 @@ const SignupLayout = ( props ) => {
                     placeHolder="Enter your email"
                 />
                 <SizedBox />
-                <TextFormField
+                {/* <TextFormField
                     ref={ userNameInputRef }
                     lable="User Name"
                     icon={ <Person /> }
                     placeHolder="Enter your User name"
                 />
-                <SizedBox />
+                <SizedBox /> */}
                 <TextFormField
                     ref={ passwordInputRef }
                     lable="Password"

@@ -8,6 +8,7 @@ const MainNavigation = () => {
             <ul>
                 <li><NavLink activeClassName={ style.active } to="/home/quotes">Quotes</NavLink></li>
                 <li><NavLink activeClassName={ style.active } to="/home/new-quote">Add a Quote</NavLink></li>
+                <li><NavLink activeClassName={ style.active } to="/login">Add a Quote</NavLink></li>
             </ul>
         </nav>
     </header>;

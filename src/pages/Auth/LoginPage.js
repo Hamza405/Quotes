@@ -7,6 +7,7 @@ import { login } from "../../services/auth-api";
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../store/AuthContext";
+import { Snackbar } from "@material-ui/core";
 
 const LoginPage = () => {
     const history = useHistory();
@@ -16,6 +17,8 @@ const LoginPage = () => {
     const loginHandler = ( inputData ) => {
         sendRequest( inputData );
     };
+
+    const handleClose = () => { };
 
     useEffect( () => {
         console.log( status );
@@ -34,7 +37,13 @@ const LoginPage = () => {
             <div className={ style.background }>
                 <BackgroundScreen lable="Sign in to Name" />
             </div>
-        </div>
+            <Snackbar open={ error != null } autoHideDuration={ 1000 } onClose={ handleClose } message={ error } anchorOrigin={ {
+                'vertical': 'bottom',
+                'horizontal': 'left',
+            } }
+            >
+            </Snackbar>
+        </div >
     );
 };
 
