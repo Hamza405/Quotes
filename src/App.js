@@ -1,4 +1,4 @@
-import React, { Suspense, useCallback, useContext } from 'react';
+import React, { Suspense, useContext } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import LoadingSpinner from './components/UI/LoadingSpinner';
 import LoginPage from './pages/Auth/LoginPage';
@@ -22,9 +22,6 @@ function App () {
       <Route path='/signup' >
         <SignupPage />
       </Route>
-      {/* <Route path='/forgetpassword' >
-        <SignupPage />
-      </Route> */}
       <Route path='/home'>
         { auth.isAuth && <Qoutes /> }
         { !auth.isAuth && <Redirect to="/login" /> }
