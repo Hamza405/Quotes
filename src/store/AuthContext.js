@@ -9,25 +9,31 @@ const AuthContext = createContext( {
     logoutMethod: () => { }
 } );
 
+const calRemainingTime = ( expirationTime ) => {
+    const currentTime = new Date().getTime();
+    const adjExpireationTime = new Date( expirationTime ).getTime();
+    return adjExpireationTime - currentTime;
+};
+
 export const AuthProvider = ( props ) => {
     const initialToken = localStorage.getItem( 'token' );
     const [ token, setToken ] = useState( initialToken );
     const isloggedIn = !!token;
 
-    const login = ( token ) => {
-        setToken( token );
-        localStorage.setItem( 'token', token );
-    };
-    const signup = ( token ) => {
-        setToken( token );
-    };
-    const forgetPassword = ( email ) => {
-
-    };
     const logout = () => {
         setToken( null );
         localStorage.removeItem( 'token' );
     };
+    const login = ( token, expireTokenTime ) => {
+        setToken( token );
+        localStorage.setItem( 'token', token );
+
+        const remainingTime = calRemainingTime( expireTokenTime );
+        setTimeout( logout, remainingTime );
+    };
+    const forgetPassword = ( email ) => {
+    };
+
 
     const context = {
         isAuth: isloggedIn,

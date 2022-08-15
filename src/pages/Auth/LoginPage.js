@@ -24,7 +24,8 @@ const LoginPage = () => {
         console.log( status );
         if ( status === 'completed' && !error && authData )
         {
-            authContext.loginMethod( authData.idToken );
+            const expireTime = new Date( new Date().getTime() + ( +authData.expiresIn * 1000 ) );
+            authContext.loginMethod( authData.idToken, expireTime.toISOString() );
             history.replace( '/home' );
         }
     }, [ status, authContext, history, error, authData ] );
