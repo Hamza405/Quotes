@@ -79,7 +79,7 @@ const LoginLayout = ( { onLogin } ) => {
                             Remember
                         </span>
                     </div>
-                    <Link to="/password" style={ { textDecoration: "none" } }>
+                    <Link to="/login" style={ { textDecoration: "none" } }>
                         <span style={ { color: "rgba(0, 128, 128)", fontSize: "0.7rem" } }>Forget Password ?</span>
                     </Link>
                 </div>

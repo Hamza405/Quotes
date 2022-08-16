@@ -4,7 +4,7 @@ import { Button } from "@material-ui/core";
 import { EmailOutlined, LockOutlined } from "@material-ui/icons";
 import TextFormField from "../UI/TextFormField";
 import SizedBox from "../UI/SizedBox";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const isEmail =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -63,7 +63,7 @@ const SignupLayout = ( props ) => {
                 <TextFormField
                     ref={ emailInputRef }
                     lable="Email"
-                    error={ emailError }
+                    helperText={ emailError }
                     icon={ <EmailOutlined /> }
                     placeHolder="Enter your email"
                 />
@@ -79,7 +79,7 @@ const SignupLayout = ( props ) => {
                     ref={ passwordInputRef }
                     lable="Password"
                     type="password"
-                    error={ passwordError }
+                    helperText={ passwordError }
                     icon={ <LockOutlined /> }
                     placeHolder="Enter your password"
                 />
@@ -88,7 +88,7 @@ const SignupLayout = ( props ) => {
                     ref={ confirmPasswordInputRef }
                     lable="Confrim Password"
                     type="password"
-                    error={ confirmPasswordError }
+                    helperText={ confirmPasswordError }
                     icon={ <LockOutlined /> }
                     placeHolder="Confrim your password"
                 />
