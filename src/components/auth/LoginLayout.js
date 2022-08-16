@@ -7,16 +7,31 @@ import google from "../../assets/google.png";
 import apple from "../../assets/apple.png";
 import { Button } from "@material-ui/core";
 import SizedBox from "../UI/SizedBox";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+
+const isEmail =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 const LoginLayout = ( { onLogin } ) => {
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
+    const [ emailError, setEmailError ] = useState( '' );
+    const [ passwordError, setPasswordError ] = useState( '' );
 
     const submit = ( event ) => {
         event.preventDefault();
         const email = emailInputRef.current.value;
         const password = passwordInputRef.current.value;
+        if ( !email.toLowerCase().match( isEmail ) )
+        {
+            setEmailError( 'Please Enter a valid email' );
+            return;
+        }
+        if ( password.length < 7 )
+        {
+            setPasswordError( 'Please Enter more than 7 chars' );
+            return;
+        }
         const data = {
             email: email,
             password: password,
@@ -40,6 +55,7 @@ const LoginLayout = ( { onLogin } ) => {
                 <TextFormField
                     ref={ emailInputRef }
                     lable="Email"
+                    helperText={ emailError }
                     icon={ <EmailOutlined /> }
                     placeHolder="Enter your email address"
                 />
@@ -48,6 +64,7 @@ const LoginLayout = ( { onLogin } ) => {
                     ref={ passwordInputRef }
                     lable="Password"
                     type="password"
+                    helperText={ passwordError }
                     icon={ <LockOutlined /> }
                     placeHolder="Enter your password"
                 />

@@ -9,6 +9,8 @@ const TextFormField = forwardRef( ( props, ref ) => {
             id="input-with-icon-textfield"
             type={ props.type }
             label={ props.lable }
+            helperText={ props.helperText }
+            error={ props.helperText }
             placeholder={ props.placeHolder }
             InputProps={ {
                 startAdornment: (
