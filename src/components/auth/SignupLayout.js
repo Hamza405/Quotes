@@ -6,14 +6,40 @@ import TextFormField from "../UI/TextFormField";
 import SizedBox from "../UI/SizedBox";
 import { useRef } from "react";
 
+const isEmail =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
 const SignupLayout = ( props ) => {
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
+    const confirmPasswordInputRef = useRef();
+    const [ emailError, setEmailError ] = useState( '' );
+    const [ passwordError, setPasswordError ] = useState( '' );
+    const [ confirmPasswordError, setConfirmPasswordError ] = useState( '' );
+
 
     const submit = ( event ) => {
         event.preventDefault();
         const email = emailInputRef.current.value;
         const password = passwordInputRef.current.value;
+        const confirmPassword = confirmPasswordInputRef.current.value;
+
+        if ( !email.toLowerCase().match( isEmail ) )
+        {
+            setEmailError( 'Please Enter a valid email' );
+            return;
+        }
+        if ( password.length < 7 )
+        {
+            setPasswordError( 'Please Enter more than 7 chars' );
+            return;
+        }
+        if ( password !== confirmPassword )
+        {
+            setConfirmPasswordError( 'Please check yoour password!' );
+            return;
+        }
+
         const data = {
             email: email,
             password: password,
@@ -37,6 +63,7 @@ const SignupLayout = ( props ) => {
                 <TextFormField
                     ref={ emailInputRef }
                     lable="Email"
+                    error={ emailError }
                     icon={ <EmailOutlined /> }
                     placeHolder="Enter your email"
                 />
@@ -52,13 +79,16 @@ const SignupLayout = ( props ) => {
                     ref={ passwordInputRef }
                     lable="Password"
                     type="password"
+                    error={ passwordError }
                     icon={ <LockOutlined /> }
                     placeHolder="Enter your password"
                 />
                 <SizedBox />
                 <TextFormField
+                    ref={ confirmPasswordInputRef }
                     lable="Confrim Password"
                     type="password"
+                    error={ confirmPasswordError }
                     icon={ <LockOutlined /> }
                     placeHolder="Confrim your password"
                 />
